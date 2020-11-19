@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@home');
-
+Route::resource('image', 'ImageController');
+Route::resource('smartphone', 'SmartphoneController');
+Route::resource('smartphoneVariant', 'SmartphoneVariantController');
 
 
 

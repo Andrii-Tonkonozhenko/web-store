@@ -10,6 +10,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(LibraryTableSeeder::class);
+         $this->call([
+             BrandSeeder::class,
+             CountrySeeder::class,
+             DisplaySeeder::class,
+             FrontCameraSeeder::class,
+             MainCameraSeeder::class,
+             OperatingSystemSeeder::class,
+             ProcessorSeeder::class,
+             ColorSeeder::class,
+         ]);
     }
 }
