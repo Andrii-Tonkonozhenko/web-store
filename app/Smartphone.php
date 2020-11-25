@@ -25,32 +25,32 @@ class Smartphone extends Model
 
     public function display()
     {
-        return $this->belongsToMany(Display::class);
+        return $this->belongsTo(Display::class);
     }
 
     public function frontCamera()
     {
-        return $this->belongsToMany(FrontCamera::class);
+        return $this->belongsTo(FrontCamera::class);
     }
 
     public function mainCamera()
     {
-        return $this->belongsToMany(MainCamera::class);
+        return $this->belongsTo(MainCamera::class);
     }
 
     public function processor()
     {
-        return $this->belongsToMany(Processor::class);
+        return $this->belongsTo(Processor::class);
     }
 
     public function brand()
     {
-        return $this->belongsToMany(Brand::class);
+        return $this->belongsTo(Brand::class);
     }
 
     public function country()
     {
-        return $this->belongsToMany(Country::class);
+        return $this->belongsTo(Country::class);
     }
 
     public function smartphoneVariant()
