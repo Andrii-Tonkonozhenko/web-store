@@ -12,6 +12,6 @@ class Country extends Model
 
     public function smartphone()
     {
-        return $this->hasMany(Smartphone::class);
+        return $this->belongsToMany(Smartphone::class);
     }
 }

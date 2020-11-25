@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SmartphoneImage extends Model
+class SmartphoneImageMap extends Model
 {
     protected $fillable = [
-
+        'type',
+        'image_id',
+        'smartphone_id'
     ];
 
     public function image()

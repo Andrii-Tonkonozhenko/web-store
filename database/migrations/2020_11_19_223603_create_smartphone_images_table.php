@@ -13,7 +13,7 @@ class CreateSmartphoneImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('smartphone_images', function (Blueprint $table) {
+        Schema::create('smartphone_image_map', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->bigInteger('image_id');

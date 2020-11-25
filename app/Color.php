@@ -12,6 +12,6 @@ class Color extends Model
 
     public function smartphoneVariant()
     {
-        return $this->hasMany(SmartphoneVariant::class);
+        return $this->belongsToMany(SmartphoneVariant::class);
     }
 }

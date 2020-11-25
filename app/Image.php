@@ -13,11 +13,11 @@ class Image extends Model
 
     public function smartphoneImage()
     {
-        return $this->hasMany(SmartphoneImage::class);
+        return $this->hasMany(SmartphoneImageMap::class);
     }
 
     public function smartphoneVariantImage()
     {
-        return $this->hasMany(SmartphoneVariantImage::class);
+        return $this->hasMany(SmartphoneVariantImageMap::class);
     }
 }

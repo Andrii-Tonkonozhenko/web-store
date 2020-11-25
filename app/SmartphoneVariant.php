@@ -17,7 +17,7 @@ class SmartphoneVariant extends Model
 
     public function smartphone()
     {
-        return $this->belongsTo(Smartphone::class);
+        return $this->belongsToMany(Smartphone::class);
     }
 
     public function color()
@@ -27,7 +27,7 @@ class SmartphoneVariant extends Model
 
     public function smartphoneVariantImage()
     {
-        return $this->hasMany(SmartphoneVariantImage::class);
+        return $this->hasMany(SmartphoneVariantImageMap::class);
     }
 
 }
