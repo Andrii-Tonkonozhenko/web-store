@@ -7,12 +7,15 @@ use App\Http\Requests\StoreSmartphoneVariantRequest;
 use App\Smartphone;
 use App\SmartphoneVariant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SmartphoneVariantController extends Controller
 {
     public function show(SmartphoneVariant $smartphoneVariant)
     {
-        return view('smartphoneVariant.show', compact( 'smartphoneVariant'));
+        $otherSmartphoneVariants = DB::table('smartphone_variants')->where('smartphone_id', $smartphoneVariant->smartphone->id)->get();
+
+        return view('smartphoneVariant.show', compact( 'smartphoneVariant', 'otherSmartphoneVariants'));
     }
 
     public function create()

@@ -1,1 +1,49 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 8px 12px 31px -10px #ab98ab;
+}
+
+.card:hover .card-img-wrapper img {
+  transform: scale(1.15);
+}
+
+.card:hover .card-body .card-title {
+  margin-bottom: 0.75rem;
+}
+
+.card-content {
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  transition: 1.5s ease;
+}
+
+.card:hover .card-body {
+  height: 80%;
+}
+
+.card:hover .card-content {
+  bottom: 0;
+}
+
+.li-image {
+  list-style-type: none;
+  width: 100px;
+  margin: auto;
+}
+
+.img-size {
+  width: 100px;
+  height: 150px;
+  margin-right: 25px;
+}
 
