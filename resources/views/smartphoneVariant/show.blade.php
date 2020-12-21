@@ -7,10 +7,7 @@
 
         <div class="row mb-2">
             <div>
-                <h1>Smartphone {{ $smartphoneVariant->smartphone->brand->title}}
-                               {{ $smartphoneVariant->ram}}/{{ $smartphoneVariant->hardware_memory}}Gb
-                               {{ $smartphoneVariant->color->title}}
-                </h1>
+                <h1>{{ $smartphoneVariant->viewTitle }}</h1>
             </div>
         </div>
 
@@ -36,14 +33,12 @@
 
         <div class="row mb-5">
             <div class="mt-3 border col-sm-5">
-                <p class="p-2">
-                    Screen ({{ $smartphoneVariant->smartphone->display->diagonal}}, {{$smartphoneVariant->smartphone->display->material}},
-                    {{ $smartphoneVariant->smartphone->display->display_height}}x{{ $smartphoneVariant->smartphone->display->display_width}}/
-                    {{ $smartphoneVariant->smartphone->processor->title}} ({{ $smartphoneVariant->smartphone->processor->ghz}} Ghz)/
-                    Main camera: {{ $smartphoneVariant->smartphone->maincamera->megapixels}}Mp, Front camera: {{ $smartphoneVariant->smartphone->frontcamera->megapixels}}Mp/
-                    RAM {{ $smartphoneVariant->ram}}/{{ $smartphoneVariant->hardware_memory}} Gb + microSD (up to 256 GB) / 4G / LTE / GPS /
-                    {{ $smartphoneVariant->smartphone->operatingsystem->title}} / {{ $smartphoneVariant->battery}} mAh
-                </p>
+                <span>Screen {{ $smartphoneVariant->display }} /</span>
+                <span> {{ $smartphoneVariant->smartphone->processor->title}} ({{ $smartphoneVariant->smartphone->processor->ghz}} Ghz) /</span>
+                <span>Main camera: {{ $smartphoneVariant->maincamera }}Mp, Front camera: {{ $smartphoneVariant->frontcamera }} Mp/ </span>
+                <span>RAM {{ $smartphoneVariant->ram}}/{{ $smartphoneVariant->hardware_memory}} Gb + microSD (up to 256 GB) / 4G / LTE / GPS /</span>
+                <span>{{ $smartphoneVariant->smartphone->operatingsystem->title}} / {{ $smartphoneVariant->battery}} mAh</span>
+
             </div>
         </div>
     </div>

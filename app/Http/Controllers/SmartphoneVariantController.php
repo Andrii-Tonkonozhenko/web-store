@@ -6,13 +6,14 @@ use App\Color;
 use App\Http\Requests\StoreSmartphoneVariantRequest;
 use App\Smartphone;
 use App\SmartphoneVariant;
-use Illuminate\Http\Request;
+
 
 class SmartphoneVariantController extends Controller
 {
+
     public function show(SmartphoneVariant $smartphoneVariant)
     {
-        return view('smartphoneVariant.show', compact( 'smartphoneVariant'));
+        return view('smartphoneVariant.show', compact( 'smartphoneVariant', 'title'));
     }
 
     public function create()
