@@ -7,7 +7,6 @@ use App\Http\Requests\StoreSmartphoneVariantRequest;
 use App\Smartphone;
 use App\SmartphoneVariant;
 
-
 class SmartphoneVariantController extends Controller
 {
 
