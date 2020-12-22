@@ -37,10 +37,14 @@
             @foreach($smartphoneVariants as $smartphoneVariant)
                 <div class="col-lg-3 col-md-6 mb-4" >
                     <div class="card h-100">
-                        <a href="{{ route('smartphoneVariant.show', ['smartphoneVariant' =>$smartphoneVariant->id]) }}"><img class="rounded mx-auto d-block" src="{{asset('img/test.jpg')}}"  alt=""></a>
+                        <a href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $smartphoneVariant->id]) }}">
+                            <img class="rounded mx-auto d-block" src="{{asset('img/test.jpg')}}"  alt="">
+                        </a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="{{ route('smartphoneVariant.show', ['smartphoneVariant' =>$smartphoneVariant->id]) }}">{{$smartphoneVariant->smartphone->brand->title}} {{$smartphoneVariant->smartphone->model}}</a>
+                                <a href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $smartphoneVariant->id]) }}">
+                                    {{$smartphoneVariant->smartphone->brand->title}} {{$smartphoneVariant->smartphone->model}}
+                                </a>
                             </h4>
                             <h5>${{$smartphoneVariant->price}}</h5>
                             <p class="card-text">{{$smartphoneVariant->smartphone->brand->title}} </p>

@@ -37,16 +37,21 @@ class SmartphoneVariant extends Model
 
     public function getDisplayAttribute() : string
     {
-        return "{$this->smartphone->display->diagonal}, {$this->smartphone->display->material}, {$this->smartphone->display->display_height}x{$this->smartphone->display->display_width}";
+        $diagonal = $this->smartphone->display->diagonal;
+        $material  = $this->smartphone->display->material;
+        $dispayHeight = $this->smartphone->display->display_height;
+        $dispayWidth = $this->smartphone->display->display_width;
+
+        return "{$diagonal}, {$material}, {$dispayHeight}x{$dispayWidth}";
     }
 
     public function getMainCameraAttribute() : string
     {
-        return "{$this->smartphone->maincamera->megapixels}";
+        return $this->smartphone->maincamera->megapixels;
     }
 
     public function getFrontCameraAttribute() : string
     {
-        return "{$this->smartphone->frontcamera->megapixels}";
+        return $this->smartphone->frontcamera->megapixels;
     }
 }
