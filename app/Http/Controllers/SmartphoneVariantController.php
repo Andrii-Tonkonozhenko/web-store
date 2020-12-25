@@ -6,8 +6,6 @@ use App\Color;
 use App\Http\Requests\StoreSmartphoneVariantRequest;
 use App\Smartphone;
 use App\SmartphoneVariant;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SmartphoneVariantController extends Controller
 {

@@ -15,7 +15,7 @@
 }
 
 .card:hover .card-body .card-title {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
 }
 
 .card-content {
@@ -30,6 +30,7 @@
 .card:hover .card-body {
     height: 80%;
 }
+
 .card:hover .card-content {
     bottom: 0;
 }
@@ -45,3 +46,8 @@
     height: 150px;
     margin-right: 25px;
 }
+
+.side-image {
+    height: 75px;
+}
+
