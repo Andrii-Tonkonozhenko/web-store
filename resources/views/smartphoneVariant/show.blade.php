@@ -51,10 +51,10 @@
         <div class="row mb-5">
             <div class="mt-3 border col-sm-5">
                 <span>Screen {{ $smartphoneVariant->display }} /</span>
-                <span> {{ $smartphoneVariant->smartphone->processor->title}} ({{ $smartphoneVariant->smartphone->processor->ghz}} Ghz) /</span>
+                <span> {{$smartphoneVariant->processor}} /</span>
                 <span>Main camera: {{ $smartphoneVariant->maincamera }}Mp, Front camera: {{ $smartphoneVariant->frontcamera }} Mp/ </span>
                 <span>RAM {{ $smartphoneVariant->ram}}/{{ $smartphoneVariant->hardware_memory}} Gb + microSD (up to 256 GB) / 4G / LTE / GPS /</span>
-                <span>{{ $smartphoneVariant->smartphone->operatingsystem->title}} / {{ $smartphoneVariant->battery}} mAh</span>
+                <span>{{ $smartphoneVariant->operatingsystem}} / {{ $smartphoneVariant->battery}} mAh</span>
             </div>
         </div>
     </div>

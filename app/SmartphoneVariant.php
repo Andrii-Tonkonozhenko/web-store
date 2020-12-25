@@ -54,4 +54,14 @@ class SmartphoneVariant extends Model
     {
         return $this->smartphone->frontcamera->megapixels;
     }
+
+    public function getProcessorAttribute() : string
+    {
+        return "{$this->smartphone->processor->title} ({$this->smartphone->processor->ghz} Ghz)";
+    }
+
+    public function getOperatingSystemAttribute() : string
+    {
+        return $this->smartphone->operatingsystem->title;
+    }
 }
