@@ -9,10 +9,11 @@ use App\SmartphoneVariant;
 
 class SmartphoneVariantController extends Controller
 {
-
     public function show(SmartphoneVariant $smartphoneVariant)
     {
-        return view('smartphoneVariant.show', compact( 'smartphoneVariant', 'title'));
+        $otherSmartphoneVariants = SmartphoneVariant::where('smartphone_id', $smartphoneVariant->smartphone->id)->get();
+
+        return view('smartphoneVariant.show', compact( 'smartphoneVariant', 'otherSmartphoneVariants'));
     }
 
     public function create()
