@@ -43,19 +43,19 @@
                 </div>
                 <div class="mt-3 border">
                     <h3 class="mt-2">Description:</h3>
-                    <h4>{{$smartphoneVariant->smartphone->description}}</h4>
+                    <h4>{{ $smartphoneVariant->smartphone->description }}</h4>
                 </div>
 
                 <div class="mt-3 dropdown show">
                     <a class="btn btn-secondary dropdown-toggle h4" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Other {{$smartphoneVariant->smartphone->brand->title}} {{$smartphoneVariant->smartphone->model}} Variants
+                        Other {{ $smartphoneVariant->smartphone->brand->title }} {{ $smartphoneVariant->smartphone->model }} Variants
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         @foreach($otherSmartphoneVariants as $otherSmartphoneVariant)
                             <a class="dropdown-item" href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $otherSmartphoneVariant->id]) }}">
-                                {{$smartphoneVariant->smartphone->brand->title}} {{$smartphoneVariant->smartphone->model}}
-                                {{$otherSmartphoneVariant->ram}}/{{ $otherSmartphoneVariant->hardware_memory}}Gb
-                                {{$otherSmartphoneVariant->battery}} mAh   {{$otherSmartphoneVariant->price}}$
+                                {{ $smartphoneVariant->smartphone->brand->title }} {{ $smartphoneVariant->smartphone->model }}
+                                {{ $otherSmartphoneVariant->ram }}/{{ $otherSmartphoneVariant->hardware_memory }}Gb
+                                {{ $otherSmartphoneVariant->battery }} mAh   {{ $otherSmartphoneVariant->price }}$
                             </a>
                         @endforeach
                     </div>
@@ -66,10 +66,10 @@
         <div class="row mb-5">
             <div class="mt-3 border col-sm-5">
                 <span>Screen {{ $smartphoneVariant->display }} /</span>
-                <span> {{$smartphoneVariant->processor}} /</span>
+                <span> {{ $smartphoneVariant->processor }} /</span>
                 <span>Main camera: {{ $smartphoneVariant->maincamera }}Mp, Front camera: {{ $smartphoneVariant->frontcamera }} Mp/ </span>
-                <span>RAM {{ $smartphoneVariant->ram}}/{{ $smartphoneVariant->hardware_memory}} Gb + microSD (up to 256 GB) / 4G / LTE / GPS /</span>
-                <span>{{ $smartphoneVariant->operatingsystem}} / {{ $smartphoneVariant->battery}} mAh</span>
+                <span>RAM {{ $smartphoneVariant->ram }}/{{ $smartphoneVariant->hardware_memory }} Gb + microSD (up to 256 GB) / 4G / LTE / GPS /</span>
+                <span>{{ $smartphoneVariant->operatingsystem }} / {{ $smartphoneVariant->battery }} mAh</span>
             </div>
         </div>
     </div>

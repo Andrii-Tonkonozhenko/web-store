@@ -11,7 +11,7 @@ class SmartphoneVariantController extends Controller
 {
     public function show(SmartphoneVariant $smartphoneVariant)
     {
-        $otherSmartphoneVariants = DB::table('smartphone_variants')->where('smartphone_id', $smartphoneVariant->smartphone->id)->get();
+        $otherSmartphoneVariants = SmartphoneVariant::where('smartphone_id', $smartphoneVariant->smartphone->id)->get();
 
         return view('smartphoneVariant.show', compact( 'smartphoneVariant', 'otherSmartphoneVariants'));
     }
