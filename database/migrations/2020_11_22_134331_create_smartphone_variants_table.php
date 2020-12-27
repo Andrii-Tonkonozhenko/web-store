@@ -21,6 +21,7 @@ class CreateSmartphoneVariantsTable extends Migration
             $table->float('price');
             $table->integer('hardware_memory');
             $table->integer('battery');
+            $table->string('title_schema')->nullable();
             $table->timestamps();
         });
     }

@@ -5,11 +5,10 @@ namespace App\Providers;
 use App\ShopSettings;
 use Illuminate\Support\ServiceProvider;
 
-
-class AppServiceProvider extends ServiceProvider
+class SettingsServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -19,12 +18,12 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-
+        config()->set('settings', ShopSettings::pluck('value', 'key')->all());
     }
 }

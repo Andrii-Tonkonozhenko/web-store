@@ -30,11 +30,6 @@ class SmartphoneVariant extends Model
         return $this->hasMany(SmartphoneVariantImageMap::class);
     }
 
-    public function getViewTitleAttribute() : string
-    {
-        return "Smartphone {$this->smartphone->brand->title} {$this->ram}/{$this->hardware_memory}Gb {$this->color->title}";
-    }
-
     public function getDisplayAttribute() : string
     {
         $diagonal = $this->smartphone->display->diagonal;
@@ -63,5 +58,38 @@ class SmartphoneVariant extends Model
     public function getOperatingSystemAttribute() : string
     {
         return $this->smartphone->operatingsystem->title;
+    }
+
+    public function getTitle() : string
+    {
+        $patterns = [
+            "{brand}" => $this->smartphone->brand->title,
+            "{ram}" => $this->ram,
+            "{hardwareMemory}" => $this->hardware_memory,
+            "{color}" => $this->color->title,
+            "{diagonal}" => $this->smartphone->display->diagonal,
+            "{material}" => $this->smartphone->display->material,
+            "{displayHeight}" => $this->smartphone->display->display_height,
+            "{displayWidth}" => $this->smartphone->display->display_width,
+            "{mainCamera}" =>  $this->smartphone->maincamera->megapixels,
+            "{frontCamera}" => $this->smartphone->frontcamera->megapixels,
+            "{processor}" => $this->smartphone->processor->title,
+            "{processorGhz}" => $this->smartphone->processor->ghz,
+            "{operatingSystem}" => $this->smartphone->operatingsystem->title,
+            "{price}" => $this->price
+
+        ];
+
+        $text = '';
+
+        if ($this->title_schema != null) {
+            $text = $this->title_schema;
+        } elseif ($this->smartphone->title_schema != null) {
+            $text = $this->smartphone->title_schema;
+        } else {
+            $text = config('settings.global_smartphone_title_schema');
+        }
+
+        return strtr($text , $patterns);
     }
 }

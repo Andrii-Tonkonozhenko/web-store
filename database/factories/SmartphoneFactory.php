@@ -8,6 +8,7 @@ $factory->define(\App\Smartphone::class, function (Faker $faker) {
     return [
         'model' => $faker->firstName,
         'description' => $faker->sentence(25),
+        'title_schema' => null,
         'operating_system_id' => factory(\App\OperatingSystem::class)->create()->id,
         'display_id' => factory(\App\Display::class)->create()->id,
         'front_camera_id' => factory(\App\FrontCamera::class)->create()->id,

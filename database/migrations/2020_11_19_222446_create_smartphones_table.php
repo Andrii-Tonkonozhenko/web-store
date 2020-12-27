@@ -17,6 +17,7 @@ class CreateSmartphonesTable extends Migration
             $table->id();
             $table->string('model');
             $table->text('description');
+            $table->string('title_schema')->nullable();
             $table->bigInteger('operating_system_id');
             $table->bigInteger('display_id');
             $table->bigInteger('front_camera_id');
