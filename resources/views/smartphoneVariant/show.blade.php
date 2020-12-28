@@ -7,7 +7,7 @@
 
         <div class="row mb-2 test">
             <div>
-                <h1>{{ $smartphoneVariant->getTitle() }}</h1>
+                <h1>{{ $smartphoneVariant->title }}</h1>
             </div>
         </div>
 

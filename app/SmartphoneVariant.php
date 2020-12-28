@@ -60,7 +60,7 @@ class SmartphoneVariant extends Model
         return $this->smartphone->operatingsystem->title;
     }
 
-    public function getTitle() : string
+    public function getTitleAttribute() : string
     {
         $patterns = [
             "{brand}" => $this->smartphone->brand->title,

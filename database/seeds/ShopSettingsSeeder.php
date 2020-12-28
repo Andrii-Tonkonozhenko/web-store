@@ -11,6 +11,9 @@ class ShopSettingsSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\ShopSettings::class, 1)->create();
+        \App\ShopSettings::create([
+           'key' => 'global_smartphone_title_schema',
+           'value' => 'Smartphone {brand} {ram}/{hardwareMemory}Gb {color}',
+        ]);
     }
 }
