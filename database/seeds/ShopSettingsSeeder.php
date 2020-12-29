@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\ShopSettings;
 
 class ShopSettingsSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class ShopSettingsSeeder extends Seeder
      */
     public function run()
     {
-        \App\ShopSettings::create([
+        ShopSettings::create([
            'key' => 'global_smartphone_title_schema',
            'value' => 'Smartphone {brand} {ram}/{hardwareMemory}Gb {color}',
         ]);

@@ -77,10 +77,7 @@ class SmartphoneVariant extends Model
             "{processorGhz}" => $this->smartphone->processor->ghz,
             "{operatingSystem}" => $this->smartphone->operatingsystem->title,
             "{price}" => $this->price
-
         ];
-
-        $text = '';
 
         if ($this->title_schema != null) {
             $text = $this->title_schema;
