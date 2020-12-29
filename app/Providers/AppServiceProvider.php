@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\ShopSettings;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -24,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        config(['settings' => ShopSettings::pluck('value', 'key')]);
     }
 }
