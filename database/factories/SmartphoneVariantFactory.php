@@ -12,6 +12,7 @@ $factory->define(\App\SmartphoneVariant::class, function (Faker $faker) {
         'ram' => $faker->numberBetween(1,16),
         'price' => $faker->numberBetween(350,1200),
         'hardware_memory' => $faker->numberBetween(2,32),
-        'battery' => $faker->numberBetween(1000,4200)
+        'battery' => $faker->numberBetween(1000,4200),
+        'title_schema' => null,
     ];
 });

@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call([
-            SmartphoneVariantSeeder::class
+             ShopSettingsSeeder::class,
+             SmartphoneVariantSeeder::class
          ]);
     }
 }

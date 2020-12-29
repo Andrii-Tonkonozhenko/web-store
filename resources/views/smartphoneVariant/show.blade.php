@@ -7,12 +7,11 @@
 
         <div class="row mb-2 test">
             <div>
-                <h1>{{ $smartphoneVariant->viewTitle }}</h1>
+                <h1>{{ $smartphoneVariant->title }}</h1>
             </div>
         </div>
 
         <div class="row">
-
             <div class="img-size">
                 <ul>
                     <li class="li-image">
