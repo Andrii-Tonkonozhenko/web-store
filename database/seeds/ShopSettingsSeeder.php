@@ -14,7 +14,7 @@ class ShopSettingsSeeder extends Seeder
     {
         ShopSettings::create([
            'key' => 'global_smartphone_title_schema',
-           'value' => 'Smartphone {brand} {ram}/{hardwareMemory}Gb {color}',
+           'value' => 'Smartphone {brand} {model} {ram}/{hardwareMemory}Gb {color}',
         ]);
     }
 }

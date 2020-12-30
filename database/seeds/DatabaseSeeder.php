@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     {
          $this->call([
              ShopSettingsSeeder::class,
-             SmartphoneVariantSeeder::class
+             SmartphoneVariantSeeder::class,
          ]);
     }
 }

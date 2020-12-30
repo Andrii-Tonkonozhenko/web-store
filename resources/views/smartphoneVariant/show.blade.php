@@ -14,23 +14,26 @@
         <div class="row">
             <div class="img-size">
                 <ul>
-                    <li class="li-image">
-                        <a href="#"><img class="side-image rounded d-block mb-4" src="{{asset('img/realme.jpg')}}"  alt=""></a>
-                    </li>
-                    <li class="li-image">
-                        <a href="#"><img class="side-image rounded d-block mb-4" src="{{asset('img/realme_front.jpg')}}"  alt=""></a>
-                    </li>
-                    <li class="li-image">
-                        <a href="#"><img class="side-image rounded d-block mb-4" src="{{asset('img/realme_back.jpg')}}"  alt=""></a>
-                    </li>
-                    <li class="li-image">
-                        <a href="#"><img class="side-image rounded d-block mb-4" src="{{asset('img/realme_side.jpg')}}"  alt=""></a>
-                    </li>
+                    @foreach($images as $image)
+                        @if($image->type == 'main')
+                            <li class="li-image">
+                                <a href="#">
+                                    <img class="side-image rounded d-block mb-4 mx-auto" src="/storage/images/{{ $image->image->src }}"  alt="">
+                                </a>
+                            </li>
+                        @else
+                            <li class="li-image">
+                                <a href="#">
+                                    <img class="side-image rounded d-block mb-4 mx-auto" src="/storage/images/{{ $image->image->src }}"  alt="">
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
 
-            <div class="сol-sm-2">
-                <img class="rounded mx-auto d-block" src="{{asset('img/realme.jpg')}}"  alt="">
+            <div class="сol-sm-2 mb-3 ml-3">
+                <img class="rounded mx-auto d-block img-show-main" src="/storage/images/{{ $smartphoneVariant->image }}" alt="">
             </div>
 
             <div class="col-sm-5 ml-5 mt-5">
@@ -52,9 +55,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         @foreach($otherSmartphoneVariants as $otherSmartphoneVariant)
                             <a class="dropdown-item" href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $otherSmartphoneVariant->id]) }}">
-                                {{ $smartphoneVariant->smartphone->brand->title }} {{ $smartphoneVariant->smartphone->model }}
-                                {{ $otherSmartphoneVariant->ram }}/{{ $otherSmartphoneVariant->hardware_memory }}Gb
-                                {{ $otherSmartphoneVariant->battery }} mAh   {{ $otherSmartphoneVariant->price }}$
+                                {{ $otherSmartphoneVariant->otherVariants }}
                             </a>
                         @endforeach
                     </div>
@@ -62,8 +63,8 @@
             </div>
         </div>
 
-        <div class="row mb-5">
-            <div class="mt-3 border col-sm-5">
+        <div class="row mb-5 mt-3 ml-4">
+            <div class="mt-3 border col-sm-5 ml-5">
                 <span>Screen {{ $smartphoneVariant->display }} /</span>
                 <span> {{ $smartphoneVariant->processor }} /</span>
                 <span>Main camera: {{ $smartphoneVariant->maincamera }}Mp, Front camera: {{ $smartphoneVariant->frontcamera }} Mp/ </span>

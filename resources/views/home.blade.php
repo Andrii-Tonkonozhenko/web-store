@@ -38,17 +38,16 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
                         <a href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $smartphoneVariant->id]) }}">
-                            <img class="rounded mx-auto d-block" src="{{asset('img/test.jpg')}}"  alt="">
+                            <img class="rounded mx-auto d-block img-home" src="/storage/images/{{ $smartphoneVariant->image }}"  alt="{{ $smartphoneVariant->title }}">
                         </a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $smartphoneVariant->id]) }}">
-                                    {{$smartphoneVariant->smartphone->brand->title}} {{$smartphoneVariant->smartphone->model}}
+                                <a class="text-black-50" href="{{ route('smartphoneVariant.show', ['smartphoneVariant' => $smartphoneVariant->id]) }}">
+                                    {{ $smartphoneVariant->title }}
                                 </a>
                             </h4>
-                            <h5>${{$smartphoneVariant->price}}</h5>
-                            <div class="card-content">
-                                <p class="card-text">{{$smartphoneVariant->smartphone->brand->title}}</p>
+                            <div>
+                                <h1>${{$smartphoneVariant->price}}</h1>
                             </div>
                         </div>
                     </div>

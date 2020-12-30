@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $alt
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\SmartphoneImageMap[] $smartphoneImage
  * @property-read int|null $smartphone_image_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\SmartphoneVariantImageMap[] $smartphoneVariantImage
  * @property-read int|null $smartphone_variant_image_count
@@ -32,11 +31,6 @@ class Image extends Model
         'src',
         'alt'
     ];
-
-    public function smartphoneImage()
-    {
-        return $this->hasMany(SmartphoneImageMap::class);
-    }
 
     public function smartphoneVariantImage()
     {

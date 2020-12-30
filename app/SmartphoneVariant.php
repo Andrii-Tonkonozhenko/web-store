@@ -40,6 +40,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|SmartphoneVariant whereTitleSchema($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SmartphoneVariant whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read string $home_title
+ * @property-read string $image
+ * @property-read string $other_variants
+ * @property-read string $title
  */
 class SmartphoneVariant extends Model
 {
@@ -67,6 +71,11 @@ class SmartphoneVariant extends Model
         return $this->hasMany(SmartphoneVariantImageMap::class);
     }
 
+    public function getHomeTitleAttribute() : string
+    {
+        return config('settings.global_smartphone_title_schema');
+    }
+
     public function getDisplayAttribute() : string
     {
         $diagonal = $this->smartphone->display->diagonal;
@@ -79,12 +88,12 @@ class SmartphoneVariant extends Model
 
     public function getMainCameraAttribute() : string
     {
-        return $this->smartphone->maincamera->megapixels;
+        return $this->smartphone->mainCamera->megapixels;
     }
 
     public function getFrontCameraAttribute() : string
     {
-        return $this->smartphone->frontcamera->megapixels;
+        return $this->smartphone->frontCamera->megapixels;
     }
 
     public function getProcessorAttribute() : string
@@ -92,9 +101,16 @@ class SmartphoneVariant extends Model
         return "{$this->smartphone->processor->title} ({$this->smartphone->processor->ghz} Ghz)";
     }
 
-    public function getOperatingSystemAttribute() : string
+    public function getOtherVariantsAttribute() : string
     {
-        return $this->smartphone->operatingsystem->title;
+        $brand = $this->smartphone->brand->title;
+        $model = $this->smartphone->model;
+        $ram = $this->ram;
+        $hardwareMemory = $this->hardware_memory;
+        $battery = $this->battery;
+        $price = $this->price;
+
+        return "{$brand} {$model} {$ram}/{$hardwareMemory} {$battery}mAh {$price}$";
     }
 
     public function getTitleAttribute() : string
@@ -108,11 +124,12 @@ class SmartphoneVariant extends Model
             "{material}" => $this->smartphone->display->material,
             "{displayHeight}" => $this->smartphone->display->display_height,
             "{displayWidth}" => $this->smartphone->display->display_width,
-            "{mainCamera}" =>  $this->smartphone->maincamera->megapixels,
-            "{frontCamera}" => $this->smartphone->frontcamera->megapixels,
+            "{mainCamera}" =>  $this->smartphone->mainCamera->megapixels,
+            "{frontCamera}" => $this->smartphone->frontCamera->megapixels,
             "{processor}" => $this->smartphone->processor->title,
             "{processorGhz}" => $this->smartphone->processor->ghz,
-            "{operatingSystem}" => $this->smartphone->operatingsystem->title,
+            "{operatingSystem}" => $this->smartphone->operatingSystem->title,
+            "{model}" => $this->smartphone->model,
             "{price}" => $this->price
         ];
 
@@ -125,5 +142,17 @@ class SmartphoneVariant extends Model
         }
 
         return strtr($text , $patterns);
+    }
+
+    public function getImageAttribute() : string
+    {
+        $mainImage = $this->smartphoneVariantImage()->where('type', 'main')->first();
+        $src = 'noimg.jpg';
+
+        if ($mainImage != null) {
+            $src = $mainImage->image->src;
+        }
+
+        return $src;
     }
 }
